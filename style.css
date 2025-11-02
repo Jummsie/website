@@ -1,0 +1,166 @@
+:root{
+  --purple: #2a186e;
+  --soft-purple: #55429b;
+  --gold: #ffed34;
+  --white: #ffffff;
+  --muted: #6b6b7a;
+  --nav-height: 72px;
+}
+
+/* base */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  color:#222;
+  background:#fff;
+  -webkit-font-smoothing:antialiased;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* confetti canvas: above hero background but below content/navbar */
+#confetti{
+  position:fixed;
+  top:0; left:0;
+  width:100vw; height:100vh;
+  z-index: 30; /* above hero bg (10) but below navbar (100) */
+  pointer-events:none;
+}
+
+/* navbar */
+/* .navbar{
+  position:sticky;
+  top:0;
+  width:100%;
+  z-index:100;
+  background:rgba(42,24,110,0.88); 
+  backdrop-filter: blur(6px);
+  box-shadow:0 2px 12px rgba(0,0,0,0.12);
+  height:var(--nav-height);
+  display:flex;
+  align-items:center;
+} */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  background: rgba(42, 24, 110, 0.95);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 0; /* add breathing room for logo */
+}
+
+.logo {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+
+.nav-content{width:100%;max-width:1200px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center}
+/* .logo{
+  height:48px;
+  width: auto;
+  object-fit: contain;
+} */
+
+/* nav links */
+.nav-links{list-style:none;display:flex;gap:16px;align-items:center;margin:0;padding:0}
+.nav-links a{color:var(--white);text-decoration:none;font-weight:600;padding:8px 10px;border-radius:6px;transition:background .15s, color .15s}
+.nav-links a:hover{background:rgba(255,255,255,0.04)}
+
+/* hero (you said earlier one worked — using your working code: contain so full flyer shows) */
+.hero {
+  width: 100%;
+  height: 85vh;
+  background-color: #1c1a25;
+  background-image: url('images/PHOTO-2025-09-19-20-59-21.jpg');
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: contain;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+  padding-top: 8px; /* keeps it clear of navbar */
+}
+
+
+
+/* content sections — white backgrounds */
+.section{background:#fff;padding:48px 20px;text-align:center;z-index:20;position:relative}
+.section.alt{background:#f6f6fb}
+
+/* headings */
+h2{color:var(--purple);margin-bottom:12px}
+p{color:var(--muted);max-width:900px;margin:0 auto;line-height:1.6}
+
+/* social icons (inline svgs inherit color) */
+.social-icons{display:flex;gap:20px;justify-content:center;margin-top:12px}
+.social-icons a{color:var(--purple);transition:transform .18s, color .18s}
+.social-icons a:hover{transform:scale(1.08);color:var(--soft-purple)}
+
+/* modal */
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);align-items:center;justify-content:center;z-index:1000}
+.modal .modal-content{background:#fff;padding:20px;border-radius:10px;text-align:center}
+.btn{background:var(--purple);color:#fff;padding:8px 14px;border-radius:8px;border:none;cursor:pointer}
+
+/* footer */
+.footer {
+  background-color: var(--purple);
+  color: var(--white);
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-weight: 500;
+  position: relative;
+  z-index: 5;
+}
+
+footer.footer {
+  background-color: #554297; /* #554297 solid deep purple */
+  color: #ffffff; /* make the text white */
+  text-align: center;
+  padding: 20px 0;
+  font-size: 0.9rem;
+  position: relative;
+  z-index: 10; /* keeps it above confetti */
+}
+
+footer.footer p {
+  margin: 0;
+  color: #fff; /* ensure white even if parent styles differ */
+}
+
+
+/* responsive */
+@media (max-width:900px){
+  .hero{height:70vh;background-position:center top;background-size:contain}
+  .logo{height:40px}
+  .nav-links{gap:10px}
+}
+@media (max-width:600px){
+  .nav-content{flex-direction:column;gap:8px;padding:10px}
+  .nav-links{flex-wrap:wrap;justify-content:center}
+  .hero{height:50vh;background-size:contain}
+  .logo{height:40px}
+}
+
+@media (max-width: 768px) {
+  .logo {
+    height: 40px;
+  }
+}
+.condates {
+  font-weight: bold;
+}
